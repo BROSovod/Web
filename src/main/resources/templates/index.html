@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>HelloSpringLeaf</title>
-    <!-- <link rel="stylesheet" th:href="@{/css/index.css}"/> -->
+    <title>Лучший тюнинг группы VAG на VAGShop</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,46 +21,31 @@
 </head>
 <body>
 <div class="text-center">
-    <h1>Hello <small class="text-muted">Spring Leaf!</small></h1>
+    <h1>VAG Shop <small class="text-muted">всё для дооснащения автомобиля!</small></h1>
 </div>
 <h6 th:text="${sid}"></h6>
 <button id="myButton" type="button" class="btn btn-primary">Primary</button>
 <span id="cart">No items</span>
-<table class="table table-sm table-striped table-bordered border-secondary">
-    <thead>
-    <tr>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Available from</th>
-    </tr>
-    </thead>
-    <tbody.table-striped>
-    <tr th:each="product : ${products}">
-        <td th:text="${product.description}"></td>
-        <td th:text="${product.price}"></td>
-        <td th:text="${product.availableFrom}"></td>
-    </tr>
-    </tbody.table-striped>
-</table>
 
-<!-- Далее следует ютубчик
-<div class="container-fluid">
-    <h1>3 различных блока</h1>
+<div class="container">
     <div class="row">
-        <div class="col-md-4" style="background-color: indianred">
-            Left
-        </div>
-
-        <div class="col-md-4" style="background-color: yellow">
-            Middle
-        </div>
-
-        <div class="col-md-4" style="background-color: darkseagreen">
-            Right
+        <div class="col-lg-3 col-sm-6 mb-3" th:each="product : ${products}">
+            <div class="card" style="width: 17rem; height: 17rem">
+                <img class="card-img-top" th:src="${product.linkImage}" th:alt="${product.description}"/>
+                <div class="card-body">
+                    <h5 class="card-title text-center" th:text="${product.description}"></h5>
+                    <div class="price text-center">
+                        <p th:text="${product.price}"></p>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <input th:data-id="${product.product_id}" type="button"
+                               class="btn btn-outline-secondary cart" value="Купить">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-</div>-->
+</div>
 
 </body>
 </html>
