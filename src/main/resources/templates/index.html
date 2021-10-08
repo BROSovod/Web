@@ -30,12 +30,12 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-sm-6 mb-3" th:each="product : ${products}">
-            <div class="card" style="width: 17rem; height: 17rem">
+            <div class="card" style="width: 17rem;">
                 <img class="card-img-top" th:src="${product.linkImage}" th:alt="${product.description}"/>
                 <div class="card-body">
                     <h5 class="card-title text-center" th:text="${product.description}"></h5>
                     <div class="price text-center">
-                        <p th:text="${product.price}"></p>
+                        <p th:text="|${product.price} Руб.|"></p>
                     </div>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <input th:data-id="${product.product_id}" type="button"
